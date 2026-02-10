@@ -75,7 +75,7 @@ def get_profile():
     user = db.session.get(User,int(user_id))
     if not user:
         return jsonify({"msg": "User not found"}), 400
-    return jsonify({"user_id": user.id, "user_email": user.email}), 200
+    return jsonify(user.serialize()), 200
 
 
 

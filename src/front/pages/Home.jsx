@@ -1,10 +1,32 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
+	const [user, setUser] = useState ({
+		email: "",
+		password: ""
+
+	})
+ 
+	const handleChange = (e) => {
+		setUser({
+			...user,
+			[e.target.name]: e.target.value
+		})
+	}
+
+	console.log(user);
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		if(!user.email || user.password)
+			alert("All fields are required")
+	}
+	
+
 
 	const loadMessage = async () => {
 		try {
@@ -33,20 +55,28 @@ export const Home = () => {
 	}, [])
 
 	return (
-		<div className="text-center mt-5">
-			<h1 className="display-4">Hello Rigo!!</h1>
-			<p className="lead">
-				<img src={rigoImageUrl} className="img-fluid rounded-circle mb-3" alt="Rigo Baby" />
-			</p>
-			<div className="alert alert-info">
-				{store.message ? (
-					<span>{store.message}</span>
-				) : (
-					<span className="text-danger">
-						Loading message from the backend (make sure your python 🐍 backend is running)...
-					</span>
-				)}
-			</div>
+		<div className="container mt-5">
+			<h1>Login</h1>
+			<form onSubmit={handleSubmit}>
+				<div className="mb-3">
+					<label htmlFor="email" className="form-label" >Email</label>
+					<input type="text" 
+					name="email" 
+					placeholder="Enter your email" 
+					className="form-control" value={user.email} 
+					onChange={handleChange} />
+				</div>
+				<div className="mb-3">
+					<label htmlFor="password" className="form-label">Password</label>
+					<input type="text" 
+					name="password" 
+					placeholder="Enter your password" 
+					className="form-control" value={user.password} 
+					onChange={handleChange} />
+				</div>
+				<button type="submit" className="btn btn-primary w-100" >Login</button>
+			</form>
+		
 		</div>
 	);
 }; 
