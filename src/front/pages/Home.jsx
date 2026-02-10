@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { login } from "../services/backendServices.js";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
+	const navigate = useNavigate()
 	const [user, setUser] = useState ({
 		email: "",
 		password: ""
@@ -18,14 +21,15 @@ export const Home = () => {
 		})
 	}
 
-	console.log(user);
-
+	
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		if(!user.email || user.password)
-			alert("All fields are required")
+	
+	
+		login(user, navigate)
 	}
 	
+	console.log(user);
 
 
 	const loadMessage = async () => {
