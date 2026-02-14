@@ -8,7 +8,7 @@ export const Private = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
+        if (!localStorage.getItem("token")) {
             setTimeout(() => {
                 navigate("/")
 
@@ -23,8 +23,8 @@ export const Private = () => {
     return (
         <>
             {loading ? (
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             ) : (
                 <h1>Hola</h1>
