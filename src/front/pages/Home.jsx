@@ -60,7 +60,7 @@ export const Home = () => {
 
 	return (
 		<div className="container mt-5">
-			<h1>Login</h1>
+			<h3>Login</h3>
 			<form onSubmit={handleSubmit}>
 				<div className="mb-3">
 					<label htmlFor="email" className="form-label" >Email</label>
