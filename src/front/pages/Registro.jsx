@@ -38,7 +38,7 @@ export const Registro = () => {
                                 <i className="fas fa-user-plus fa-4x text-primary mb-3"></i>
                             </div>
 
-                            {/* TU CÓDIGO EXACTO SIN CAMBIOS */}
+                          
                             <h3>Create a user</h3>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
@@ -59,7 +59,7 @@ export const Registro = () => {
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100" >Create a user</button>
                             </form>
-                            {/* FIN DE TU CÓDIGO */}
+                            
 
                         </div>
                     </div>
