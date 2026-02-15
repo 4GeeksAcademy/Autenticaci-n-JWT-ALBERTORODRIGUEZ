@@ -30,7 +30,7 @@ export const Registro = () => {
 
     return (
         <div className="container mt-5">
-            <h1>Create a user</h1>
+            <h3>Create a user</h3>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label" >Email</label>
