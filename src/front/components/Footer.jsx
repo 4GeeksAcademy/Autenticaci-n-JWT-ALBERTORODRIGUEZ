@@ -12,7 +12,7 @@ export const Footer = () => (
 
           © 2026 - Hecho con ❤️
         </p>
-		<h3>Albeto Rodriguez</h3>
+		<h3>Alberto Rodriguez</h3>
       </div>
     </footer>
 );
